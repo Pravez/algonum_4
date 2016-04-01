@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
-import matplotlib.pyplot as plt
-import math
-from scipy import linspace, special
 import Newton_Rhapson as NR # Newton-Raphson method
 
                ################# Part 4 #####################
@@ -16,6 +13,8 @@ N = 3
 
 
 def Jacobian(X):
+
+    "Compute the Jacobian (here, N = 3)"
 
     J = np.zeros([N, N])
 
