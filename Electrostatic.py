@@ -10,7 +10,7 @@ import Newton_Rhapson as NR # Newton-Raphson method
 
                ########## Electrostatic equilibrium #########
 
-N = 3
+N = 3 # All part
 
 ######### Question 1 ##########
 
@@ -111,10 +111,96 @@ def Polynomials_Legendre():
 	plt.legend(('P0(X) = 0', 'P1(X) = 1', 'P2(X) = 2', 'P3(X) = 3', 'P4(X) = 4', 'P5(X) = 5'))
 	plt.show()
 	
+
 	
+######## Test part ###########
+
+
+X_test = np.array([0.2, 0.4, 0.5]) # For all test part
+
+print "Test of Jacobian :"
+print ""
+print Jacobian(X_test)
+print ""
+print ""
+
+print "Test of Energy's Laplacian :"
+print ""
+print Laplacian_E(X_test)
+print ""
+print ""
+
+print "Resolution of the system with Newton-Raphson method (backtracking) :"
+print ""
+res = NR.Newton_Raphson_Back(Laplacian_E, Jacobian, X_test, 50, 0.0001)
+print res
+print ""
+print ""
+
+print "Plotting the Legendre polynomials :"
+print ""
+Polynomials_Legendre()
 	
+
+
+############ Question 3 ############
+
+
+a = np.array([0.8, 0.6, 0.4])
+b = np.array([0.5, 0.6, -0.7])
+c = np.array([-0.1, 0.8, 0.6])
+
+print "Energy of {}:" . format(res)
+print ""
+print Energy(res)
+print ""
+print ""
+
+print "Energy of {}:" . format(a)
+print ""
+print Energy(a)
+print ""
+print ""
+
+print "Energy of {}:" . format(b)
+print ""
+print Energy(b)
+print ""
+print ""
+
+print "Energy of {}:" . format(c)
+print ""
+print Energy(c)
+print ""
+print ""
+
+print "Jacobian of {}:" . format(res)
+print ""
+print Jacobian(res)
+print ""
+print ""
+
+print "Eigenvalues ​​of the Jacobian:"
+print ""
+print np.linalg.eigvals(Jacobian(res))
+print ""
+print ""
+
+print "We obtain negative values ​​so you get maximum energy."
+print ""				
 	
-	
+
+# Evolution of Energy
+
+x = np.linspace(-0.9, 0.9, N)
+y = res
+
+print x
+print y
+print ""
+
+plt.plot(x, y)
+plt.show()	
 	
 	
 	
