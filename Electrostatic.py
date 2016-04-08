@@ -108,6 +108,9 @@ def Polynomials_Legendre():
 		y = legendre(x)
 		plt.plot(x, y)
 	
+        plt.ylabel('Pn(X)')
+        plt.xlabel("X")
+        plt.title("Legendre Polynomials")
 	plt.legend(('P0(X) = 0', 'P1(X) = 1', 'P2(X) = 2', 'P3(X) = 3', 'P4(X) = 4', 'P5(X) = 5'))
 	plt.show()
 	
@@ -200,6 +203,9 @@ print y
 print ""
 
 plt.plot(x, y)
+plt.ylabel('Y (Values of resolution system)')
+plt.xlabel("X")
+plt.title("Evolution of Energy")
 plt.show()	
 	
 	
