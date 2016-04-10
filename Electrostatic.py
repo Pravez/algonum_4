@@ -69,7 +69,7 @@ def sum_log(X, i):
 	for j in range(0, N):
 		if i != j:
 			s += math.log(math.fabs(X[i] - X[j]))
-			
+
 	return s
 	
 
@@ -95,22 +95,79 @@ def Energy(X):
 		s += math.log(math.fabs(X[i] + 1)) + math.log(math.fabs(X[i] - 1)) + ((1.0 / 2.0) * sum_log(X, i))
 		
 	return s
-	
+
+#def P1(x):
+    
+    #   "Dérivée du second polynome de Legendre"
+    #return 3*x
+
+#def P2(x):
+        
+    #   "Dérivée du troisième polynome de Legendre"
+    #return 0.5*(15.*x*x-3)
+
+#def P3(x):
+    
+    #   "Dérivée du quatrième polynome de Legendre"
+    #return 0.125*(140.*x*x*x-60.*x)
+
+#def P4(x):
+        
+    #"Dérivée du cinquième polynome de Legendre"
+    #return 0.125*(315.*x**4-210.*x**2+15.)
+
 
 def Polynomials_Legendre():
 
-	"Plot the Legendre Polynomials"
+    "Plot the Legendre Polynomials"
 	
-	x = linspace(-1,1,100)
-
-	for n in range(0, 5):
+    x = linspace(-1,1,100)
+    
+    for n in range(0, 5):
 		legendre = special.legendre(n)
 		y = legendre(x)
 		plt.plot(x, y)
 	
+    
+    
+    #  g = plt.plot(x, P1(x), 'm', linewidth=1.0)
+    #  h = plt.plot(x, P2(x), 'g', linewidth=1.0)
+    #  i = plt.plot(x, P3(x), 'r', linewidth=1.0)
+    #   j = plt.plot(x, P4(x), 'b', linewidth=1.0)
+                        
+    #   U = np.asmatrix([-0.9]).T
+    #   Res = NR.Newton_Raphson_Backtrack(Energy(1), Jacobian(1), U, 10, epsilon)
+    #   plt.plot(Res[0],0,'o')
+                                        
+    #   U = np.asmatrix([-0.9,0.9]).T
+    #   Res = NR.Newton_Raphson_Backtrack(Energy(2), Jacobian(2), U, 10, epsilon)
+    #   plt.plot(Res[0],0,'o')
+    #   plt.plot(Res[1],0,'o')
+                                                        
+#       U = np.asmatrix([-0.9,0.,0.9]).T
+#       Res = NR.Newton_Raphson_Backtrack(Energy(3), Jacobian(3), U, 10, epsilon)
+#       plt.plot(Res[0],0,'o')
+#       plt.plot(Res[1],0,'o')
+#       plt.plot(Res[2],0,'o')
+                                                                    
+#       U = np.asmatrix([-0.8,-0.1,0.1,0.8]).T
+#       Res = NR.Newton_Raphson_Backtrack(Energy(4), Jacobian(4), U, 10, epsilon)
+#       plt.plot(Res[0],0,'o')
+#       plt.plot(Res[1],0,'o')
+#       plt.plot(Res[2],0,'o')
+#       plt.plot(Res[3],0,'o')
+                                                                                                    
+#       plt.axis([-1,1,-5,5])
+
+
+    
+    
+    
+    
+    
         plt.ylabel('Pn(X)')
         plt.xlabel("X")
         plt.title("Legendre Polynomials")
-	plt.legend(('P0(X) = 0', 'P1(X) = 1', 'P2(X) = 2', 'P3(X) = 3', 'P4(X) = 4', 'P5(X) = 5'))
+	plt.legend((g,h,i,j),('P0(X) = 0', 'P1(X) = 1', 'P2(X) = 2', 'P3(X) = 3', 'P4(X) = 4', 'P5(X) = 5'))
 	plt.show()
 
