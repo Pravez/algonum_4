@@ -33,7 +33,6 @@ def gravitational_force(U,x0,y0,k):
     n = np.sqrt(((U[0] - x0)**2 + ((U[1] - y0)**2))**3)
     return np.array([-k*(U[0] - x0)/n, ((-k)*(U[1] - y0))/n])
 
-##
 #The function forces_sum returns the sum of the forces.
 ##
 def forces_sum(U):
@@ -117,7 +116,7 @@ def test__gravit_jac():
         gen=gravit_jac(np.array([np.random.randint(1),np.random.randint(1)]),np.random.randint(1),np.random.randint(1),1)
         assert(gen[0][1] == gen[1][0])
         cpt=cpt+1
-        print("For the gravitational force :\n%s successful test(s) out of 100.\n" % cpt)
+    print("For the gravitational force :\n%s successful test(s) out of 100.\n" % cpt)
 
 def test__centrif_jac():
     print("\n Tests about the generation of the centrifugal jacobian matrix: \n")
@@ -126,8 +125,8 @@ def test__centrif_jac():
         gen=centrif_jac(np.array([np.random.randint(1),np.random.randint(1)]),np.random.randint(1),np.random.randint(1),1)
         assert(gen[0][1] == gen[1][0])
         cpt=cpt+1
-        print("For the centrifugal force :\n%s successful test(s) out of 100.\n" % cpt)
-        print("End of tests about the computation of Lagrangian points.\n")
+    print("For the centrifugal force :\n%s successful test(s) out of 100.\n" % cpt)
+    print("End of tests about the computation of Lagrangian points.\n")
 
 def test__Lagrange():
     forces_display()

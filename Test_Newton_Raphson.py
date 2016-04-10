@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from Newton_Rhapson import *
 import unittest
+import matplotlib.pyplot as plt
 import tkMessageBox
 import Tkinter as tk
 
@@ -29,21 +30,25 @@ def speed_convergence():
 
 class Test_Newton_Raphson(unittest.TestCase):
 
-    print "Tests sur Newton-Raphson"
+    print('Tests sur Newton-Raphson')
 
     def test_NR_without_backtracking(self):
+        print('Tests sans backtracking...')
         NR_result = Newton_Raphson(f, df, np.array([2, 5]), 50, epsilon)
 
         #Testing results with np.sqrt
         assert(np.abs(NR_result[0]-np.sqrt(2)) < epsilon)
         assert(np.abs(NR_result[1]-np.sqrt(5)) < epsilon)
+        print('Fait')
 
     def test_NR_with_backtracking(self):
+        print('Tests avec backtracking...')
         NR_result_back = Newton_Raphson_Back(f, df, np.array([2, 5]), 50, epsilon)
 
         #Testing results with np.sqrt once again
         assert(np.abs(NR_result_back[0] - np.sqrt(2)) < epsilon)
         assert(np.abs(NR_result_back[1] - np.sqrt(5)) < epsilon)
+        print('Fait')
 
     def test_speed_convergence(self):
         if(tkMessageBox.askyesno("Vitesse de convergence","Tester la vitesse de convergence ? (une figure sera produite)")):
