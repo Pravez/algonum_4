@@ -120,7 +120,6 @@ def test__gravit_jac():
         assert(gen[0][1] == gen[1][0])
         cpt=cpt+1
         print("For the gravitational force :\n%s successful test(s) out of 100.\n" % cpt)
-        return
 
 def test__centrif_jac():
     print("\n Tests about the generation of the centrifugal jacobian matrix: \n")
@@ -131,7 +130,6 @@ def test__centrif_jac():
         cpt=cpt+1
         print("For the centrifugal force :\n%s successful test(s) out of 100.\n" % cpt)
         print("End of tests about the computation of Lagrangian points.\n")
-        return
 
 def test__Lagrange():
     forces_display()
