@@ -34,12 +34,6 @@ def gravitational_force(U,x0,y0,k):
     return np.array([-k*(U[0] - x0)/n, ((-k)*(U[1] - y0))/n])
 
 ##
-#The function f returns the value of a function f valued at U.
-##
-def f(U):
-    return np.array([f1(U),f2(U)])
-
-##
 #The function forces_sum returns the sum of the forces.
 ##
 def forces_sum(U):
