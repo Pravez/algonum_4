@@ -134,6 +134,5 @@ def test__Lagrange():
     test__forces_sum()
     test__gravit_jac()
     test__centrif_jac()
-    return
 
 test__Lagrange()
