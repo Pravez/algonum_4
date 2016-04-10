@@ -99,7 +99,6 @@ def forces_display():
     print (centrifugal_force (U,0,0,1))
     print ("The gravitational force is: ")
     print (gravitational_force (U,0,0,1))
-    return
 
 def test__forces_sum():
     U=np.array([1.5,0])
@@ -110,7 +109,6 @@ def test__forces_sum():
     print (jacobian_matrix(U))
     print ("By applying the Newton Raphson method, the result is: ")
     print (Newton_Raphson(forces_sum,jacobian_matrix,U,50,10**(-11))[0])
-    return
 
 def test__gravit_jac():
     print("\n Tests about the generation of the gravitational jacobian matrix: \n")
