@@ -16,15 +16,15 @@ N = 3 # All part
 
 def sum_diagonal(X, i):
 
-	"Return 1 / ((X[i] - X[k])**2)"
+    "Return 1 / ((X[i] - X[k])**2)"
 
-	s = 0.0
-	
-	for k in range(0, N):
-		if i != k:
-			s += 1.0 / ((X[i] - X[k])**2)
-			
-	return s
+    s = 0.0
+
+    for k in range(0, N):
+        if i != k:
+            s += 1.0 / ((X[i] - X[k])**2)
+
+    return s
 
 
 def Jacobian(X):
@@ -62,39 +62,39 @@ def sum_deriv(X, i):
 
 def sum_log(X, i):
 
-	"Return log(|X[i] - X[j]|) with j different to i in (O, N)"
+    "Return log(|X[i] - X[j]|) with j different to i in (O, N)"
 
-	s = 0.0
-	
-	for j in range(0, N):
-		if i != j:
-			s += math.log(math.fabs(X[i] - X[j]))
+    s = 0.0
 
-	return s
-	
+    for j in range(0, N):
+        if i != j:
+            s += math.log(math.fabs(X[i] - X[j]))
+
+    return s
+
 
 def Laplacian_E(X):
 
-	"Return a vector corresponding to the Laplacian E"
+    "Return a vector corresponding to the Laplacian E"
 
-	E = np.zeros(N)
-	
-	for i in range(0, N):
-		E[i] = (1.0 / (X[i] + 1)) + (1.0 / (X[i] - 1)) + sum_deriv(X, i)
-		
-	return E
-	
+    E = np.zeros(N)
+
+    for i in range(0, N):
+        E[i] = (1.0 / (X[i] + 1)) + (1.0 / (X[i] - 1)) + sum_deriv(X, i)
+
+    return E
+
 
 def Energy(X):
 
-	"Return E(X1, ..., XN)"
+    "Return E(X1, ..., XN)"
 
-	s = 0.0
-	
-	for i in range(0, N):
-		s += math.log(math.fabs(X[i] + 1)) + math.log(math.fabs(X[i] - 1)) + ((1.0 / 2.0) * sum_log(X, i))
-		
-	return s
+    s = 0.0
+
+    for i in range(0, N):
+        s += math.log(math.fabs(X[i] + 1)) + math.log(math.fabs(X[i] - 1)) + ((1.0 / 2.0) * sum_log(X, i))
+
+    return s
 
 #def P1(x):
     
@@ -120,17 +120,22 @@ def Energy(X):
 def Polynomials_Legendre():
 
     "Plot the Legendre Polynomials"
-	
+
     x = linspace(-1,1,100)
     
     for n in range(0, 5):
-		legendre = special.legendre(n)
-		y = legendre(x)
-		plt.plot(x, y)
-	
-    
-    
-    #  g = plt.plot(x, P1(x), 'm', linewidth=1.0)
+        legendre = special.legendre(n)
+        y = legendre(x)
+        plt.plot(x, y)
+
+    plt.ylabel('Pn(X)')
+    plt.xlabel("X")
+    plt.title("Legendre Polynomials")
+    plt.legend(('P0(X) = 0', 'P1(X) = 1', 'P2(X) = 2', 'P3(X) = 3', 'P4(X) = 4', 'P5(X) = 5'))
+    plt.show()
+
+
+        #  g = plt.plot(x, P1(x), 'm', linewidth=1.0)
     #  h = plt.plot(x, P2(x), 'g', linewidth=1.0)
     #  i = plt.plot(x, P3(x), 'r', linewidth=1.0)
     #   j = plt.plot(x, P4(x), 'b', linewidth=1.0)
@@ -144,30 +149,17 @@ def Polynomials_Legendre():
     #   plt.plot(Res[0],0,'o')
     #   plt.plot(Res[1],0,'o')
                                                         
-#       U = np.asmatrix([-0.9,0.,0.9]).T
-#       Res = NR.Newton_Raphson_Backtrack(Energy(3), Jacobian(3), U, 10, epsilon)
-#       plt.plot(Res[0],0,'o')
-#       plt.plot(Res[1],0,'o')
-#       plt.plot(Res[2],0,'o')
-                                                                    
-#       U = np.asmatrix([-0.8,-0.1,0.1,0.8]).T
-#       Res = NR.Newton_Raphson_Backtrack(Energy(4), Jacobian(4), U, 10, epsilon)
-#       plt.plot(Res[0],0,'o')
-#       plt.plot(Res[1],0,'o')
-#       plt.plot(Res[2],0,'o')
-#       plt.plot(Res[3],0,'o')
-                                                                                                    
-#       plt.axis([-1,1,-5,5])
+    #       U = np.asmatrix([-0.9,0.,0.9]).T
+    #       Res = NR.Newton_Raphson_Backtrack(Energy(3), Jacobian(3), U, 10, epsilon)
+    #       plt.plot(Res[0],0,'o')
+    #       plt.plot(Res[1],0,'o')
+    #       plt.plot(Res[2],0,'o')
 
+    #       U = np.asmatrix([-0.8,-0.1,0.1,0.8]).T
+    #       Res = NR.Newton_Raphson_Backtrack(Energy(4), Jacobian(4), U, 10, epsilon)
+    #       plt.plot(Res[0],0,'o')
+    #       plt.plot(Res[1],0,'o')
+    #       plt.plot(Res[2],0,'o')
+    #       plt.plot(Res[3],0,'o')
 
-    
-    
-    
-    
-    
-        plt.ylabel('Pn(X)')
-        plt.xlabel("X")
-        plt.title("Legendre Polynomials")
-	plt.legend((g,h,i,j),('P0(X) = 0', 'P1(X) = 1', 'P2(X) = 2', 'P3(X) = 3', 'P4(X) = 4', 'P5(X) = 5'))
-	plt.show()
-
+    #       plt.axis([-1,1,-5,5])
